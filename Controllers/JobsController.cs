@@ -67,7 +67,7 @@ namespace ToDoLast.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,jobQuestion,jobAnswer")] Job job)
+        public async Task<IActionResult> Create(Job job)
         {
             if (ModelState.IsValid)
             {
@@ -101,7 +101,7 @@ namespace ToDoLast.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,jobQuestion,jobAnswer")] Job job)
+        public async Task<IActionResult> Edit(int id, Job job)
         {
             if (id != job.Id)
             {
