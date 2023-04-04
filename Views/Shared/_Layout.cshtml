@@ -6,7 +6,21 @@
     <title>@ViewData["Title"] - ToDoLast</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/ToDoLast.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/JokingApp.styles.css" asp-append-version="true" />
+    <link rel="icon" href="robot.png">
+    <title>Images</title>
+    <style>
+        body {
+            height: 100vh;
+            background-image: url("https://cdn.pixabay.com/photo/2015/01/08/18/26/man-593333_960_720.jpg");
+            color: white;
+            padding: 25px;
+            background-position: center;
+            background-size: cover;
+            background-position: top;
+            background-repeat: repeat;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -25,6 +39,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Jobs" asp-action="Index">Jokes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Jobs" asp-action="ShowSearchForm">Search</a>
+                        </li>
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
@@ -39,7 +59,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - ToDoLast - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2022 - ToDoLast - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
