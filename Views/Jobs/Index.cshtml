@@ -7,7 +7,10 @@
 <h1>Tasks List</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <form asp-action="Create">
+        <button style="background-color:orange">Create New</button>
+    </form>
+    
 </p>
 <table class="table" style="color:whitesmoke">
     <thead>
@@ -23,9 +26,10 @@
             </td>
             <td>
                     
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" style=" color:white;
+background-color:orange">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" style="color:white; background-color:orange">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" style="color:white ;background-color:orange">Delete</a>
             </td>
         </tr>
 }
