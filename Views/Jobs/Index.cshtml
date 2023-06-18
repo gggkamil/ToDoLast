@@ -25,11 +25,20 @@
                 @Html.DisplayFor(modelItem => item.JobQuestion) 
             </td>
             <td>
+                <p>
+
+                </p>
+                    <a asp-action="Edit" asp-route-id="@item.Id">
+                        <button style=" color:white;background-color:orange">Edit</button>
+                    </a>
+                    <a asp-action="Details" asp-route-id="@item.Id">
+                        <button style="color:white; background-color:orange">Details</button>
+                    </a >
+                    <a asp-action="Delete" asp-route-id="@item.Id">
+                        <button style="color:white ;background-color:orange">Delete</button>
+                    </a>
                     
-                    <a asp-action="Edit" asp-route-id="@item.Id" style=" color:white;
-background-color:orange">Edit</a>
-                    <a asp-action="Details" asp-route-id="@item.Id" style="color:white; background-color:orange">Details</a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" style="color:white ;background-color:orange">Delete</a>
+
             </td>
         </tr>
 }
