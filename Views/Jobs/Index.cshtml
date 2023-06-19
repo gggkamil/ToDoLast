@@ -10,7 +10,7 @@
     <a asp-action="Create">
         <button type="button" class="btn btn-primary">Create New</button>
     </a>
-    
+
 </p>
 <table class="table" style="color:whitesmoke">
     <thead>
@@ -19,28 +19,34 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.JobQuestion) 
-            </td>
-            <td>
-                <p>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <p onclick="lineThroughFunction(this)">
+                        @Html.DisplayFor(modelItem => item.JobQuestion)
+                    </p>
+                </td>
+                <td>
 
-                </p>
                     <a asp-action="Edit" asp-route-id="@item.Id">
                         <button type="button" class="btn btn-primary">Edit</button>
                     </a>
                     <a asp-action="Details" asp-route-id="@item.Id">
                         <button type="button" class="btn btn-primary">Details</button>
-                    </a >
-                    <a asp-action="Delete" asp-route-id="@item.Id">
-                        <button type="button" value="Delete" class="btn btn-danger" >Delete</button>
                     </a>
-                    
+                    <a asp-action="Delete" asp-route-id="@item.Id">
+                        <button type="button" value="Delete" class="btn btn-danger">Delete</button>
+                    </a>
 
-            </td>
-        </tr>
-}
+
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+<script type="text/javascript">
+    function lineThroughFunction(element) {
+        element.classList.toggle("line-through");
+    }
+</script>
