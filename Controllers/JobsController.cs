@@ -216,5 +216,9 @@ namespace ToDoLast.Controllers
         {
             return _context.Job.Any(e => e.Id == id);
         }
+        public IActionResult Privacy()
+        {
+            return View();
+        }
     }
 }
