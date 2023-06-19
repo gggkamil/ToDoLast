@@ -30,8 +30,11 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to tasks</a>
+    <a asp-action="Index">
+        <button type="button" class="btn btn-primary">Back to tasks</button>
+    </a>
 </div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
