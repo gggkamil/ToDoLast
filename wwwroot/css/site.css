@@ -16,3 +16,6 @@ html {
 body {
   margin-bottom: 80px;
 }
+.line-through {
+    text-decoration: line-through;
+}
