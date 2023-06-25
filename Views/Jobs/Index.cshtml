@@ -10,7 +10,6 @@
     <a asp-action="Create">
         <button type="button" class="btn btn-primary">Create New</button>
     </a>
-
 </p>
 <table class="table" style="color:whitesmoke">
     <thead>
@@ -23,12 +22,11 @@
         {
             <tr>
                 <td>
-                    <p onclick="lineThroughFunction(this)">
+                    <p onclick="lineThroughFunction(this, '@item.Id')" id="@item.Id">
                         @Html.DisplayFor(modelItem => item.JobQuestion)
                     </p>
                 </td>
                 <td>
-
                     <a asp-action="Edit" asp-route-id="@item.Id">
                         <button type="button" class="btn btn-primary">Edit</button>
                     </a>
@@ -38,15 +36,42 @@
                     <a asp-action="Delete" asp-route-id="@item.Id">
                         <button type="button" value="Delete" class="btn btn-danger">Delete</button>
                     </a>
-
-
                 </td>
             </tr>
         }
     </tbody>
 </table>
 <script type="text/javascript">
-    function lineThroughFunction(element) {
+    window.onload = function () {
+        var savedStates = localStorage.getItem('lineThroughStates');
+        if (savedStates) {
+            var states = JSON.parse(savedStates);
+            for (var i = 0; i < states.length; i++) {
+                var state = states[i];
+                var elementId = state.elementId;
+                var isLineThrough = state.isLineThrough;
+                var element = document.getElementById(elementId);
+                if (element && isLineThrough) {
+                    element.classList.add("line-through");
+                }
+            }
+        }
+    };
+
+    function lineThroughFunction(element, itemId) {
         element.classList.toggle("line-through");
+
+        var savedStates = localStorage.getItem('lineThroughStates');
+        var states = savedStates ? JSON.parse(savedStates) : [];
+        var stateIndex = states.findIndex(function (state) {
+            return state.elementId === itemId;
+        });
+
+        if (stateIndex !== -1) {
+            states.splice(stateIndex, 1);
+        }
+
+        states.push({ elementId: itemId, isLineThrough: element.classList.contains("line-through") });
+        localStorage.setItem('lineThroughStates', JSON.stringify(states));
     }
 </script>
