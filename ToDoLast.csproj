@@ -1,19 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-ToDoLast-4dc80328-babb-48f0-acee-1755cc9af8a2</UserSecretsId>
   </PropertyGroup>
-
   <ItemGroup>
     <Compile Remove="Views\Tasks\**" />
     <Content Remove="Views\Tasks\**" />
     <EmbeddedResource Remove="Views\Tasks\**" />
     <None Remove="Views\Tasks\**" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.10" />
@@ -21,12 +18,23 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.10" />
+    <PackageReference Include="Microsoft.ML" Version="1.7.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
-
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
-
+  <ItemGroup Label="JobsML">
+    <None Include="JobsML.consumption.cs">
+      <DependentUpon>JobsML.mbconfig</DependentUpon>
+    </None>
+    <None Include="JobsML.training.cs">
+      <DependentUpon>JobsML.mbconfig</DependentUpon>
+    </None>
+    <None Include="JobsML.zip">
+      <DependentUpon>JobsML.mbconfig</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
